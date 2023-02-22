@@ -4,9 +4,16 @@
  */
 package apuestas;
 
+/**
+ * 
+ * @author Jiada Chen
+ */
 
 public class Apuestas {
-
+    
+    /**
+     * @param args los líneas de comandos
+     */
     public static void main(String[] args) {
         Apuesta laApuesta;
 
@@ -14,7 +21,12 @@ public class Apuestas {
         operativa_Apuesta(laApuesta, 0);
         
     }
-
+    /**
+     * Comprueba que se ha hecho bien la operación de la apuesta
+     * 
+     * @param laApuesta la apuesta que hhiciste
+     * @param dinero dinero apostado
+     */
     public static void operativa_Apuesta(Apuesta laApuesta, int dinero) {
         try {
             System.out.println("Apostando...");

@@ -4,6 +4,10 @@
  */
 package apuestas;
 
+/**
+ * clase Apuesta.java
+ * @author Jiada Chen
+ */
 
 public class Apuesta {
 
@@ -12,31 +16,49 @@ public class Apuesta {
     private int goles_visitante;
     private int apostado;
 
-    /*Contructor por defecto*/
+    /**
+     * Contructor por defecto
+     */
     public Apuesta() {
     }
 
-    /*Contructor por parámetros*/
+    /**
+     * Contructor por defecto
+     * 
+     * @param dinero_disp dinero disponible
+     * @param goles_local goles locales
+     * @param goles_visitante goles del visitante
+     */
     public Apuesta(int dinero_disp, int goles_local, int goles_visitante) {
         this.dinero_disp = dinero_disp;
         this.goles_local = goles_local;
         this.goles_visitante = goles_visitante;
         this.apostado = 0;
     }
-    /*Método para obtener el valor del atributo dinero_disp*/
-
+    
+    /**
+     * Método para obtener el valor del atributo dinero_disp
+     * 
+     * @return devuelve dinero disponnible
+     */
     public int getDinero_disp() {
         return dinero_disp;
     }
-    /*Método para modificar el valor del atributo dinero_disp*/
-
+    
+    /**
+     * Método para modificar el valor del atributo dinero_disp
+     * @param dinero_disp dinero disponible
+     */
     public void setDinero_disp(int dinero_disp) {
         this.dinero_disp = dinero_disp;
     }
 
-    /*Método para apostar.
+    /**
+     * Método para apostar.
      * Permite elegir la cantidad a apostar, no pudiendo ser inferior a 1 ni superior a tu saldo disponible
-     * Este método será probado con JUnit
+     * 
+     * @param dinero cantidad de dinero
+     * @throws Exception Este método será probado con JUnit
      */
     public void apostar(int dinero) throws Exception {
         if (dinero <= 0) {
@@ -51,11 +73,15 @@ public class Apuesta {
             setApostado(dinero);
         }
     }
-    /*Método que comprueba si se ha acertado el resultado del partido
-     * En caso de que lo haya acertado devuelve true. Chequea que no se metan menos de 0 goles
+    
+    /**
+     * Método que comprueba si se ha acertado el resultado del partido
      * 
+     * @param local local
+     * @param visitante visitante
+     * @return devuelve un boolean
+     * @throws Exception En caso de que lo haya acertado devuelve true. Chequea que no se metan menos de 0 goles
      */
-
     public boolean comprobar_resultado(int local, int visitante) throws Exception {
         boolean acertado = false;
         if ((local < 0) || (visitante) < 0) {
@@ -67,12 +93,16 @@ public class Apuesta {
         }
         return acertado;
     }
-    /* Método para cobrar la apuesta.
+    
+    /**
+     * Método para cobrar la apuesta.
      * Comprueba que se acertó el resultado y, en ese caso, añade el valor apostado multiplicado por 10
      * al saldo disponible
-     * Este método se va a probar con Junit
+     * 
+     * @param cantidad_goles_local cantidad de goles locales
+     * @param cantidad_goles_visit cantidad de goles de visitante
+     * @throws Exception Este método se va a probar con Junit
      */
-
     void cobrar_apuesta(int cantidad_goles_local, int cantidad_goles_visit) throws Exception {
 
         if (comprobar_resultado(cantidad_goles_local, cantidad_goles_visit) == false) {
